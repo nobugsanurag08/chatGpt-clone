@@ -1,0 +1,593 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animation for typing indicator */
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+.typing-dot {
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ChatGPT-like styling */
+.chatgpt-message {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.chatgpt-input {
+  border-radius: 12px;
+  /* border: 1px solid #d1d5db; */
+  transition: border-color 0.2s;
+}
+
+.chatgpt-input:focus {
+  border-color: #9ca3af;
+  outline: none;
+  box-shadow: none;
+}
+
+.chatgpt-button {
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.chatgpt-sidebar {
+  background-color: #181818;
+}
+
+.chatgpt-sidebar-item {
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.chatgpt-sidebar-item:hover {
+  background-color: #2a2b32;
+}
+
+/* Exact ChatGPT styling */
+/* .chatgpt-container {
+  background-color: #ffffff;
+}
+
+.chatgpt-message-container {
+  background-color: #ffffff;
+} */
+
+/* .chatgpt-user-message {
+  background-color: #ffffff;
+} */
+
+/* .chatgpt-ai-message {
+  background-color: #ffffff;
+} */
+
+/* Message bubble styling */
+.user-message-bubble {
+  background-color: #2f2f2f;
+  border-radius: 18px;
+  padding: 8px 16px;
+  margin-left: auto;
+  margin-right: 0;
+  max-width: 80%;
+  color: #ffffff;
+  border: none;
+  display: inline-block;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.ai-message-bubble {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin-right: auto;
+  margin-left: 0;
+  max-width: 80%;
+  color: #ffffff;
+  border: none;
+  display: inline-block;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+
+/* Input field container styling */
+.chatgpt-input-container {
+  background-color: #212121 !important;
+}
+
+/* Mobile input positioning */
+@media (max-width: 1023px) {
+  .chatgpt-input-container {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10 !important;
+    margin-left: 0 !important;
+    flex: 1 !important;
+  }
+}
+
+.chatgpt-input-container > div > div {
+  border-radius: 5rem !important;
+  border: 1px solid #6b7280 !important;
+  background-color: #2f2f2f !important;
+}
+
+.chatgpt-input-field {
+  background-color: #2f2f2f;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-height: 44px;
+}
+
+.chatgpt-input-field:focus {
+  border: none;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chatgpt-send-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #9ca3af;
+  transition: all 0.2s;
+}
+
+.chatgpt-send-button:hover {
+  background-color: #404040;
+  color: #212121;
+  border: 1px solid #212121;
+}
+
+.chatgpt-send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+/* Clean textarea styling */
+.chatgpt-input-container textarea {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.chatgpt-input-container textarea:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Disclaimer text styling - no background or border */
+.chatgpt-input-container div:last-child {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Dark background for everything except sidebar */
+body {
+  background-color: #212121 !important;
+  overflow: hidden;
+}
+
+html {
+  background-color: #212121 !important;
+  overflow: hidden;
+}
+
+#__next {
+  background-color: #212121 !important;
+  overflow: hidden;
+}
+
+/* Ensure sidebar is fixed and doesn't scroll */
+.chatgpt-sidebar {
+  position: fixed !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 40 !important;
+}
+
+/* Ensure main chat area scrolls independently */
+.chatgpt-main-area {
+  overflow: hidden !important;
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  z-index: 10 !important;
+  margin-left: 0 !important;
+  flex: 1 !important;
+}
+
+/* Mobile layout - full width */
+@media (max-width: 1023px) {
+  .chatgpt-main-area {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* Desktop layout - main content to the right of sidebar */
+@media (min-width: 1024px) {
+  .chatgpt-main-area {
+    margin-left: 256px !important; /* Width of sidebar */
+  }
+  
+  .chatgpt-sidebar[data-collapsed="true"] + .chatgpt-main-area {
+    margin-left: 64px !important; /* Width of collapsed sidebar */
+  }
+}
+
+/* Message container positioning */
+.chatgpt-message-container {
+  padding-left: 20px !important;
+}
+
+/* Header styling - Positioned to the right of sidebar */
+.chatgpt-header {
+  background-color: #212121 !important;
+  z-index: 10 !important;
+  position: relative !important;
+  min-height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-left: 0 !important;
+}
+
+/* Desktop header visibility - Above 1024px */
+@media (min-width: 1024px) {
+  .chatgpt-header {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 60px !important;
+    background-color: #212121 !important;
+  }
+  
+  .chatgpt-header h1 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #ffffff !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+  }
+}
+
+/* Mobile header visibility */
+@media (max-width: 768px) {
+  .chatgpt-header {
+    min-height: 50px !important;
+    padding: 12px 16px !important;
+  }
+  
+  .chatgpt-header h1 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Debug header visibility */
+.chatgpt-header h1 {
+  color: #ffffff !important;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+}
+
+/* Force header visibility on all screen sizes */
+.chatgpt-header {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: #212121 !important;
+}
+
+.chatgpt-header * {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.chatgpt-header svg {
+  color: #ffffff !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Header button styling */
+.chatgpt-header button {
+  border: none !important;
+  background: transparent !important;
+}
+
+.chatgpt-header button:hover {
+  background-color: #212121 !important;
+  border: none !important;
+}
+
+.chatgpt-header button:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Share button specific styling - match sidebar button */
+.chatgpt-header button[class*="border-gray-600"] {
+  background-color: transparent !important;
+  border: 1px solid #6b7280 !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+}
+
+.chatgpt-header button[class*="border-gray-600"]:hover {
+  background-color: #374151 !important;
+  border: 1px solid #6b7280 !important;
+}
+
+/* Collapse/Expand button styling */
+.chatgpt-sidebar button[data-collapse="true"] {
+  background-color: #374151 !important;
+  border: 1px solid #6b7280 !important;
+  border-radius: 6px !important;
+  padding: 6px !important;
+  min-width: 32px !important;
+  min-height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.chatgpt-sidebar button[data-collapse="true"] svg {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/* Sidebar collapse button positioning */
+.chatgpt-sidebar button[data-collapse="true"] {
+  position: absolute !important;
+  top: 12px !important;
+  right: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  z-index: 20 !important;
+  background-color: #374151 !important;
+  border: 1px solid #6b7280 !important;
+  border-radius: 4px !important;
+}
+
+/* Plus icon in input field - make it bigger */
+.chatgpt-input-container button svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* More specific targeting for plus icon */
+.chatgpt-input-container button[onclick] svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Force plus icon size */
+.chatgpt-input-container .h-6 svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Send button styling - white circular */
+.chatgpt-input-container button[onclick]:last-child {
+  background-color: white !important;
+  border-radius: 50% !important;
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.chatgpt-input-container button[onclick]:last-child:hover {
+  background-color: #f3f4f6 !important;
+}
+
+.chatgpt-input-container button[onclick]:last-child svg {
+  color: #1f2937 !important;
+}
+
+/* Chat container scrolling */
+.chat-container {
+  height: 100% !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #212121;
+}
+
+.chat-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: #212121;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+

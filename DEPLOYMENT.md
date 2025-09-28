@@ -28,40 +28,73 @@ This guide will help you deploy your ChatGPT clone to Vercel with all the necess
 
 After deploying, you need to configure environment variables in Vercel:
 
+### How to Add Environment Variables in Vercel
+
+1. Go to your project dashboard on [vercel.com](https://vercel.com)
+2. Click on your project
+3. Go to **Settings** tab
+4. Click on **Environment Variables** in the left sidebar
+5. Add each variable with its value
+6. Click **Save** after adding each variable
+7. **Important**: After adding all variables, go to **Deployments** tab and click **Redeploy** to apply the new environment variables
+
 ### Required Environment Variables
 
-1. **OpenAI API Key**
+1. **OpenAI API Key** (Required)
    - Go to [OpenAI Platform](https://platform.openai.com/api-keys)
    - Create a new API key
-   - Add to Vercel: `OPENAI_API_KEY`
+   - Add to Vercel: 
+     - **Name**: `OPENAI_API_KEY`
+     - **Value**: `your_openai_api_key_here`
 
-2. **MongoDB Atlas**
+2. **MongoDB Atlas** (Required)
    - Create account at [MongoDB Atlas](https://www.mongodb.com/atlas)
    - Create a new cluster
    - Get connection string
-   - Add to Vercel: `MONGODB_URI`
+   - Add to Vercel:
+     - **Name**: `MONGODB_URI`
+     - **Value**: `mongodb+srv://username:password@cluster.mongodb.net/chatgpt-clone`
 
-3. **Cloudinary**
+3. **Cloudinary** (Required for file uploads)
    - Create account at [Cloudinary](https://cloudinary.com)
    - Get credentials from dashboard
    - Add to Vercel:
-     - `CLOUDINARY_CLOUD_NAME`
-     - `CLOUDINARY_API_KEY`
-     - `CLOUDINARY_API_SECRET`
+     - **Name**: `CLOUDINARY_CLOUD_NAME` | **Value**: `your_cloud_name`
+     - **Name**: `CLOUDINARY_API_KEY` | **Value**: `your_api_key`
+     - **Name**: `CLOUDINARY_API_SECRET` | **Value**: `your_api_secret`
 
-4. **Clerk Authentication (Optional)**
+4. **Clerk Authentication** (Required)
    - Create account at [Clerk](https://clerk.com)
    - Create new application
    - Get keys from dashboard
    - Add to Vercel:
-     - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
-     - `CLERK_SECRET_KEY`
+     - **Name**: `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | **Value**: `pk_test_...`
+     - **Name**: `CLERK_SECRET_KEY` | **Value**: `sk_test_...`
 
-5. **NextAuth Configuration**
+5. **NextAuth Configuration** (Required)
    - Generate a random secret: `openssl rand -base64 32`
    - Add to Vercel:
-     - `NEXTAUTH_URL` (your Vercel domain)
-     - `NEXTAUTH_SECRET`
+     - **Name**: `NEXTAUTH_URL` | **Value**: `https://your-project.vercel.app`
+     - **Name**: `NEXTAUTH_SECRET` | **Value**: `your_generated_secret`
+
+### Environment Variables Checklist
+
+- [ ] `OPENAI_API_KEY` - Your OpenAI API key
+- [ ] `MONGODB_URI` - MongoDB connection string
+- [ ] `CLOUDINARY_CLOUD_NAME` - Cloudinary cloud name
+- [ ] `CLOUDINARY_API_KEY` - Cloudinary API key
+- [ ] `CLOUDINARY_API_SECRET` - Cloudinary API secret
+- [ ] `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` - Clerk publishable key
+- [ ] `CLERK_SECRET_KEY` - Clerk secret key
+- [ ] `NEXTAUTH_URL` - Your Vercel app URL
+- [ ] `NEXTAUTH_SECRET` - Random secret string
+
+### Troubleshooting
+
+If you get the error "Environment Variable references Secret which does not exist":
+1. Make sure you've removed any `vercel.json` file from your project
+2. Add environment variables directly in Vercel dashboard (not as secrets)
+3. Redeploy your application after adding all variables
 
 ## 📱 Mobile Optimization
 

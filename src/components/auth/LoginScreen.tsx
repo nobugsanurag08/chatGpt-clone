@@ -278,7 +278,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
                   key={msg.id}
                   className={`group relative py-6 ${msg.role === 'user' ? 'chatgpt-user-message' : 'chatgpt-ai-message'}`}
                 >
-                  <div className="w-full flex justify-end">
+                  <div className={`w-full flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                     <div className={`flex gap-4 items-start max-w-4xl w-fit ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                       {/* Avatar */}
                       <div className="flex-shrink-0">
@@ -327,7 +327,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
                           /* Display Mode */
                           <div className="w-full">
                             <div className={`${msg.role === 'user' ? 'user-message-bubble' : 'ai-message-bubble'}`}>
-                              <p className="whitespace-pre-wrap leading-relaxed break-words">{msg.content}</p>
+                              <p className="whitespace-pre-wrap leading-relaxed break-words text-white">{msg.content}</p>
                             </div>
 
                             {/* Action Buttons */}

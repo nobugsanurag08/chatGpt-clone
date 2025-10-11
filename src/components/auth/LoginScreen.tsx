@@ -243,30 +243,32 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
       <div className="flex-1 flex flex-col overflow-hidden">
         {messages.length === 0 ? (
           /* Welcome Screen */
-          <div className="flex-1 flex flex-col items-center justify-center px-4">
-            <h1 className="text-6xl font-bold text-white mb-8 text-center">
-              ChatGPT
-            </h1>
-            <div className="text-center text-gray-300 max-w-2xl px-8">
-              <p className="text-lg mb-4">How can I help you today?</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                <div className="p-4 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer transition-colors" onClick={() => setMessage("Help me write a professional email")}>
-                  <h3 className="font-semibold text-white mb-2">✉️ Write an email</h3>
-                  <p className="text-sm text-gray-400">Professional, casual, or formal</p>
+          <div className="flex-1 flex flex-col items-center px-4 overflow-y-auto welcome-screen-mobile">
+            <div className="w-full max-w-4xl mx-auto py-8 min-h-full flex flex-col justify-center">
+              <h1 className="text-4xl sm:text-6xl font-bold text-white mb-8 text-center">
+                ChatGPT
+              </h1>
+              <div className="text-center text-gray-300 max-w-2xl mx-auto px-4 sm:px-8">
+                <p className="text-lg mb-4">How can I help you today?</p>
+                <div className="grid grid-cols-2 gap-4 mt-8">
+                <div className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer transition-colors" onClick={() => setMessage("Help me write a professional email")}>
+                  <h3 className="font-semibold text-white mb-2 text-sm">✉️ Write an email</h3>
+                  <p className="text-xs text-gray-400">Professional, casual, or formal</p>
                 </div>
-                <div className="p-4 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer transition-colors" onClick={() => setMessage("Explain a complex topic in simple terms")}>
-                  <h3 className="font-semibold text-white mb-2">💡 Explain concepts</h3>
-                  <p className="text-sm text-gray-400">Break down complex ideas</p>
+                <div className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer transition-colors" onClick={() => setMessage("Explain a complex topic in simple terms")}>
+                  <h3 className="font-semibold text-white mb-2 text-sm">💡 Explain concepts</h3>
+                  <p className="text-xs text-gray-400">Break down complex ideas</p>
                 </div>
-                <div className="p-4 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer transition-colors" onClick={() => setMessage("Help me debug this code")}>
-                  <h3 className="font-semibold text-white mb-2">🐛 Debug code</h3>
-                  <p className="text-sm text-gray-400">Find and fix programming issues</p>
+                <div className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer transition-colors" onClick={() => setMessage("Help me debug this code")}>
+                  <h3 className="font-semibold text-white mb-2 text-sm">🐛 Debug code</h3>
+                  <p className="text-xs text-gray-400">Find and fix programming issues</p>
                 </div>
-                <div className="p-4 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer transition-colors" onClick={() => setMessage("Help me brainstorm creative ideas")}>
-                  <h3 className="font-semibold text-white mb-2">🎨 Brainstorm</h3>
-                  <p className="text-sm text-gray-400">Generate creative solutions</p>
+                <div className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 cursor-pointer transition-colors" onClick={() => setMessage("Help me brainstorm creative ideas")}>
+                  <h3 className="font-semibold text-white mb-2 text-sm">🎨 Brainstorm</h3>
+                  <p className="text-xs text-gray-400">Generate creative solutions</p>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         ) : (
@@ -424,7 +426,7 @@ export default function LoginScreen({ onLogin }: LoginScreenProps) {
                     const aiResponseCount = messages.filter(msg => msg.role === 'assistant').length;
                     return aiResponseCount >= 4;
                   })()}
-                  className={`w-full min-h-[60px] max-h-[200px] resize-none bg-[#2f2f2f] border-gray-600 text-white placeholder-gray-400 rounded-xl px-6 py-4 pr-20 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${(() => {
+                  className={`w-full h-[60px] resize-none bg-[#2f2f2f] border-gray-600 text-white placeholder-gray-400 rounded-xl px-6 py-4 pr-20 focus:ring-2 focus:ring-blue-500 focus:border-transparent ${(() => {
                     const aiResponseCount = messages.filter(msg => msg.role === 'assistant').length;
                     return aiResponseCount >= 4 ? 'opacity-50 cursor-not-allowed' : '';
                   })()}`}

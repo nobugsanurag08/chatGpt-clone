@@ -573,6 +573,21 @@ html {
   scrollbar-color: #4b5563 #212121;
 }
 
+/* Mobile welcome screen scrolling */
+@media (max-width: 768px) {
+  .welcome-screen-mobile {
+    overflow-y: auto !important;
+    height: calc(100vh - 140px) !important;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start !important;
+  }
+  
+  .welcome-screen-mobile > div {
+    min-height: calc(100vh - 140px) !important;
+    padding-top: 2rem !important;
+  }
+}
+
 .chat-container::-webkit-scrollbar {
   width: 8px;
 }
